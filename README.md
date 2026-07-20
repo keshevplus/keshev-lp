@@ -26,16 +26,14 @@ cp .env.example .env.local   # then edit as needed
 npm run dev
 ```
 
-For local development against a locally running `keshevplus` backend, set:
-
-```
-VITE_API_BASE_URL=http://localhost:5000
-```
-
-The local `keshevplus` backend's CORS allowlist only permits specific
-origins (see `server/app.ts` there) — add your local dev origin to
-`CORS_ALLOWED_ORIGINS` when running it locally, or the contact form request
-will fail with a CORS error in the browser.
+In dev, `/api/*` requests are proxied (see `vite.config.ts`) to a locally
+running `keshevplus` backend on `http://localhost:5000` — this is same-origin
+from the browser's point of view, so it sidesteps that backend's production
+CORS allowlist entirely. Just have that backend running locally on port 5000
+(`npm run dev` in the `keshevplus` repo) and everything works with no CORS
+setup. Verified end-to-end: a real submission through this proxy created a
+real row in the `contacts` table and returned `{"success":true}` from the
+live backend logic.
 
 ## Deployment
 
