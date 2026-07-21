@@ -50,66 +50,72 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-gray-50 py-16">
-      <div className="max-w-3xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-2 text-green-800 text-right">קבעו פגישת ייעוץ</h2>
-        <p className="text-lg mb-8 text-right">
-          השאירו פרטים ונחזור אליכם בהקדם, או התקשרו ישירות ל-
-          <a href={`tel:${PHONE_TEL}`} className="text-green-700 underline font-semibold">
+    <section id="contact" className="bg-white py-20 md:py-28">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">קבעו פגישת ייעוץ</h2>
+        <p className="text-lg text-gray-600 mb-10">
+          השאירו פרטים ונחזור אליכם בהקדם, או התקשרו ישירות ל-{' '}
+          <a href={`tel:${PHONE_TEL}`} className="text-green-700 font-semibold underline underline-offset-2">
             {PHONE_DISPLAY}
           </a>
         </p>
 
         <form
-          className="bg-orange-400/65 p-6 rounded-lg shadow-lg w-full"
+          className="bg-cream border border-gray-100 rounded-2xl p-6 sm:p-8 text-right"
           onSubmit={(e) => {
             e.preventDefault();
             handleSubmit(onSubmit)(e);
           }}
           noValidate
         >
-          <div className="grid grid-cols-1 gap-4 mb-4">
+          <div className="grid grid-cols-1 gap-5 mb-5">
             {[
               { name: 'name' as const, label: 'שם' },
               { name: 'email' as const, label: 'אימייל', type: 'email' },
               { name: 'phone' as const, label: 'טלפון', type: 'tel' },
             ].map(({ name, label, type = 'text' }) => (
-              <div key={name} className="relative">
+              <div key={name}>
+                <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1.5">
+                  {label}
+                </label>
                 <input
+                  id={name}
                   {...register(name)}
                   type={type}
-                  placeholder={label}
-                  className={`w-full p-3 rounded-lg border text-right ${
-                    errors[name] ? 'border-red-700 border-2' : 'border-gray-300 focus:border-green-500'
-                  }`}
+                  className={`w-full px-4 py-3 rounded-xl border bg-white text-right transition-colors ${
+                    errors[name]
+                      ? 'border-red-400 focus:border-red-500'
+                      : 'border-gray-200 focus:border-green-500'
+                  } outline-none`}
                 />
                 {errors[name] && (
-                  <span className="block text-red-800 font-bold text-sm mt-1">
-                    {errors[name]?.message}
-                  </span>
+                  <span className="block text-red-600 text-sm mt-1.5">{errors[name]?.message}</span>
                 )}
               </div>
             ))}
           </div>
 
-          <div className="relative mb-4">
+          <div className="mb-6">
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
+              הודעה
+            </label>
             <textarea
+              id="message"
               {...register('message')}
-              rows={3}
-              placeholder="הודעה"
-              className={`w-full p-3 rounded-lg border text-right ${
-                errors.message ? 'border-red-700 border-2' : 'border-gray-300 focus:border-green-500'
-              }`}
+              rows={4}
+              className={`w-full px-4 py-3 rounded-xl border bg-white text-right transition-colors ${
+                errors.message ? 'border-red-400 focus:border-red-500' : 'border-gray-200 focus:border-green-500'
+              } outline-none`}
             />
             {errors.message && (
-              <span className="block text-red-800 font-bold text-sm mt-1">{errors.message.message}</span>
+              <span className="block text-red-600 text-sm mt-1.5">{errors.message.message}</span>
             )}
           </div>
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors duration-300 disabled:bg-gray-400 font-semibold"
+            className="w-full bg-green-700 text-white px-6 py-3.5 rounded-xl font-semibold transition-colors duration-200 hover:bg-green-800 disabled:bg-gray-300"
           >
             {isSubmitting ? 'שולח...' : 'שלח הודעה'}
           </button>

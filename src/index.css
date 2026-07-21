@@ -8,5 +8,16 @@ html {
 
 body {
   direction: rtl;
-  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  font-family: 'Heebo', 'Segoe UI', Tahoma, Arial, sans-serif;
+  color: #1f2937;
+}
+
+/* Offsets scroll targets so the sticky navbar doesn't cover the section heading */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+::selection {
+  background-color: #bbf7d0;
+  color: #14532d;
 }
