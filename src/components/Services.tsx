@@ -47,17 +47,17 @@ const audiences = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-cream py-20 md:py-28">
+    <section id="services" className="bg-white py-20 md:py-28">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">למי זה מתאים</h2>
+        <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-12">למי זה מתאים</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-right">
           {audiences.map(({ title, text, Icon }) => (
             <div
               key={title}
-              className="bg-white rounded-2xl border border-gray-100 p-8 transition-colors duration-200 hover:border-green-200"
+              className="bg-cream rounded-2xl border border-gray-100 p-8 transition-colors duration-200 hover:border-forest/20"
             >
-              <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-green-50 text-green-700 mb-5">
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-forest/5 text-forest mb-5">
                 <Icon />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>

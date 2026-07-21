@@ -1,67 +1,76 @@
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-cream">
-      {/* Decorative soft background blobs - purely visual, no shadow */}
+    <section className="relative overflow-hidden bg-forest">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-green-100 opacity-60 blur-3xl"
+        className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-orange-400/10 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-32 -right-16 h-72 w-72 rounded-full bg-orange-100 opacity-60 blur-3xl"
+        className="pointer-events-none absolute top-10 -right-24 h-72 w-72 rounded-full bg-green-300/10 blur-3xl"
       />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-20 md:pt-20 md:pb-28 flex flex-col md:flex-row gap-12 md:gap-8 items-center justify-between">
-        <div className="flex flex-col w-full md:w-[52%] order-2 md:order-1 text-center md:text-right animate-fade-up">
-          <span className="inline-block self-center md:self-end mb-5 text-sm font-semibold text-green-800 bg-green-50 border border-green-100 rounded-full px-4 py-1.5">
-            ברוכים הבאים למרפאת "קשב פלוס"
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-20 md:pt-12 md:pb-28 flex flex-col md:flex-row gap-12 md:gap-10 items-center justify-between">
+        <div className="flex flex-col w-full md:w-[54%] order-2 md:order-1 text-center md:text-right">
+          <span className="inline-block self-center md:self-end mb-6 text-sm font-semibold text-orange-300 bg-white/5 border border-white/10 rounded-full px-4 py-1.5">
+            אבחון מקצועי לקשב וריכוז
           </span>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
-            ד"ר איירין כוכב רייפמן
+          <h1 className="font-serif text-4xl md:text-6xl font-bold text-white leading-[1.15] mb-6">
+            האבחון הנכון
             <br />
-            <span className="text-green-700">מומחית לאבחון וטיפול בהפרעות קשב וריכוז</span>
+            לא צריך לחכות
           </h1>
 
-          <p className="text-lg text-gray-600 mb-8">בקשב פלוס, תקבלו אבחון מדויק ותוכנית טיפול אישית</p>
+          <p className="text-lg md:text-xl text-cream/85 mb-6 max-w-xl md:mr-0 mx-auto">
+            בקשב פלוס מקבלים מענה מהיר, אבחון מדויק ותוכנית טיפול אישית - לילדים, לבני נוער
+            ולמבוגרים.
+          </p>
 
-          <div className="mb-8">
-            <p className="text-xl font-semibold text-gray-900 mb-1">הצעד הראשון מתחיל כאן</p>
-            <p className="text-base text-gray-600">קבעו פגישת ייעוץ - ובואו לגלות את הדרך להצלחה</p>
-          </div>
+          <p className="text-sm text-cream/70 mb-8">
+            בהובלת ד"ר איירין כוכב רייפמן, מומחית לאבחון וטיפול בהפרעות קשב וריכוז
+          </p>
 
-          <div className="mb-9 flex flex-wrap justify-center md:justify-end items-center gap-1 text-lg font-medium text-gray-800">
-            {['בילדים', 'בנוער', 'במבוגרים'].map((item, idx, arr) => (
-              <span key={item} className="inline-flex items-center">
-                <span className="bg-white border border-gray-200 rounded-full px-4 py-1.5">{item}</span>
-                {idx < arr.length - 1 && <span className="text-orange-500 font-bold mx-2">+</span>}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap justify-center md:justify-end gap-3">
+          <div className="flex flex-wrap justify-center md:justify-end gap-3 mb-6">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 bg-green-700 text-white px-7 py-3.5 rounded-xl font-semibold transition-colors duration-200 hover:bg-green-800"
+              className="inline-flex items-center gap-2 bg-orange-400 text-forest px-7 py-3.5 rounded-xl font-bold transition-colors duration-200 hover:bg-orange-300"
             >
-              התחל/י את האבחון
+              קבעו תור עכשיו
             </a>
             <a
               href="#about"
-              className="inline-flex items-center gap-2 bg-orange-50 text-orange-700 border border-orange-200 px-7 py-3.5 rounded-xl font-semibold transition-colors duration-200 hover:bg-orange-100"
+              className="inline-flex items-center gap-2 border border-white/25 text-white px-7 py-3.5 rounded-xl font-semibold transition-colors duration-200 hover:bg-white/10"
             >
-              קרא/י עוד עלינו
+              קראו עוד עלינו
             </a>
           </div>
+
+          <p className="text-sm text-cream/60">מענה אישי תוך זמן קצר</p>
         </div>
 
-        <div className="relative w-full md:w-[42%] flex justify-center order-1 md:order-2">
+        <div className="relative w-full md:w-[38%] flex justify-center order-1 md:order-2">
+          <div
+            aria-hidden="true"
+            className="absolute h-[110%] w-[85%] bg-gradient-to-br from-orange-400/25 to-transparent rounded-[3rem] blur-2xl"
+          />
           <img
             src="/assets/images/doctor-hero.png"
-            alt="רופאה מומחית לקשב וריכוז"
-            className="relative w-full max-w-sm md:max-w-none h-auto rounded-3xl"
+            alt="ד&quot;ר איירין כוכב רייפמן"
+            className="relative w-full max-w-xs md:max-w-none h-auto rounded-tl-[4rem] rounded-br-[4rem] rounded-tr-2xl rounded-bl-2xl border border-white/10"
           />
         </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-wrap justify-center md:justify-end gap-2 pb-10">
+        {['בילדים', 'בנוער', 'במבוגרים'].map((item) => (
+          <span
+            key={item}
+            className="text-sm font-medium text-cream/80 border border-white/15 rounded-full px-4 py-1.5"
+          >
+            {item}
+          </span>
+        ))}
       </div>
     </section>
   );

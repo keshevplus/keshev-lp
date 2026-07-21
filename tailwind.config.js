@@ -5,9 +5,14 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Heebo', 'Segoe UI', 'Tahoma', 'Arial', 'sans-serif'],
+        serif: ['"Frank Ruhl Libre"', 'Georgia', 'serif'],
       },
       colors: {
         cream: '#FAF9F5',
+        forest: {
+          DEFAULT: '#0F3324',
+          light: '#154A34',
+        },
       },
       keyframes: {
         'fade-up': {

@@ -14,10 +14,10 @@ body {
 
 /* Offsets scroll targets so the sticky navbar doesn't cover the section heading */
 section[id] {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 4.5rem;
 }
 
 ::selection {
   background-color: #bbf7d0;
-  color: #14532d;
+  color: #0f3324;
 }

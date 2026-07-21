@@ -2,6 +2,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import ValueStrip from './components/ValueStrip';
+import Process from './components/Process';
 import About from './components/About';
 import Services from './components/Services';
 import ContactSection from './components/ContactSection';
@@ -13,6 +15,8 @@ export default function App() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <ValueStrip />
+        <Process />
         <About />
         <Services />
         <ContactSection />

@@ -50,18 +50,22 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-white py-20 md:py-28">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">קבעו פגישת ייעוץ</h2>
-        <p className="text-lg text-gray-600 mb-10">
+    <section id="contact" className="relative overflow-hidden bg-forest py-20 md:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 right-1/2 translate-x-1/2 h-72 w-72 rounded-full bg-orange-400/10 blur-3xl"
+      />
+      <div className="relative max-w-2xl mx-auto px-4 sm:px-6 text-center">
+        <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-3">קבעו פגישת ייעוץ</h2>
+        <p className="text-lg text-cream/80 mb-10">
           השאירו פרטים ונחזור אליכם בהקדם, או התקשרו ישירות ל-{' '}
-          <a href={`tel:${PHONE_TEL}`} className="text-green-700 font-semibold underline underline-offset-2">
+          <a href={`tel:${PHONE_TEL}`} className="text-orange-300 font-semibold underline underline-offset-2">
             {PHONE_DISPLAY}
           </a>
         </p>
 
         <form
-          className="bg-cream border border-gray-100 rounded-2xl p-6 sm:p-8 text-right"
+          className="bg-white rounded-2xl p-6 sm:p-8 text-right"
           onSubmit={(e) => {
             e.preventDefault();
             handleSubmit(onSubmit)(e);
@@ -82,10 +86,10 @@ export default function ContactSection() {
                   id={name}
                   {...register(name)}
                   type={type}
-                  className={`w-full px-4 py-3 rounded-xl border bg-white text-right transition-colors ${
+                  className={`w-full px-4 py-3 rounded-xl border bg-cream text-right transition-colors ${
                     errors[name]
                       ? 'border-red-400 focus:border-red-500'
-                      : 'border-gray-200 focus:border-green-500'
+                      : 'border-gray-200 focus:border-orange-400'
                   } outline-none`}
                 />
                 {errors[name] && (
@@ -103,8 +107,8 @@ export default function ContactSection() {
               id="message"
               {...register('message')}
               rows={4}
-              className={`w-full px-4 py-3 rounded-xl border bg-white text-right transition-colors ${
-                errors.message ? 'border-red-400 focus:border-red-500' : 'border-gray-200 focus:border-green-500'
+              className={`w-full px-4 py-3 rounded-xl border bg-cream text-right transition-colors ${
+                errors.message ? 'border-red-400 focus:border-red-500' : 'border-gray-200 focus:border-orange-400'
               } outline-none`}
             />
             {errors.message && (
@@ -115,7 +119,7 @@ export default function ContactSection() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-green-700 text-white px-6 py-3.5 rounded-xl font-semibold transition-colors duration-200 hover:bg-green-800 disabled:bg-gray-300"
+            className="w-full bg-orange-400 text-forest px-6 py-3.5 rounded-xl font-bold transition-colors duration-200 hover:bg-orange-300 disabled:bg-gray-300 disabled:text-gray-500"
           >
             {isSubmitting ? 'שולח...' : 'שלח הודעה'}
           </button>
