@@ -17,9 +17,9 @@ export default function Navbar() {
         isScrolled ? 'shadow-sm' : ''
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between py-4">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between py-2.5">
         <a href="#" className="flex items-center shrink-0">
-          <img src="/assets/images/logo.png" alt="קשב פלוס" className="object-contain w-24" />
+          <img src="/assets/images/logo.png" alt="קשב פלוס" className="object-contain w-36 sm:w-40" />
         </a>
 
         <div className="flex items-center gap-3 sm:gap-5">

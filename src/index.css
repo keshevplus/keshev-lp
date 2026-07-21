@@ -8,7 +8,7 @@ html {
 
 body {
   direction: rtl;
-  font-family: 'Heebo', 'Segoe UI', Tahoma, Arial, sans-serif;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
   color: #1f2937;
 }
 

@@ -4,8 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Heebo', 'Segoe UI', 'Tahoma', 'Arial', 'sans-serif'],
-        serif: ['"Frank Ruhl Libre"', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', 'Arial', 'sans-serif'],
       },
       colors: {
         cream: '#FAF9F5',
@@ -13,15 +12,6 @@ export default {
           DEFAULT: '#0F3324',
           light: '#154A34',
         },
-      },
-      keyframes: {
-        'fade-up': {
-          '0%': { opacity: '0', transform: 'translateY(12px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-      },
-      animation: {
-        'fade-up': 'fade-up 0.6s ease-out both',
       },
     },
   },

@@ -49,8 +49,8 @@ const values = [
 
 export default function ValueStrip() {
   return (
-    <section className="bg-white py-14 md:py-16">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6">
+    <section className="bg-white py-8 md:py-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-6">
         {values.map(({ title, text, Icon }) => (
           <div key={title} className="flex items-start gap-4 text-right">
             <div className="shrink-0 inline-flex items-center justify-center h-11 w-11 rounded-full bg-forest/5 text-forest">

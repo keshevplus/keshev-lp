@@ -1,28 +1,28 @@
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-cream">
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-20 md:pt-16 md:pb-28 flex flex-col md:flex-row gap-14 md:gap-10 items-center justify-between">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-10 md:pt-10 md:pb-14 flex flex-col md:flex-row gap-8 items-center justify-between">
         <div className="flex flex-col w-full md:w-[54%] order-2 md:order-1 text-center md:text-right">
-          <span className="inline-block self-center md:self-end mb-6 text-sm font-semibold text-green-800 bg-green-50 border border-green-100 rounded-full px-4 py-1.5">
+          <span className="inline-block self-center md:self-end mb-4 text-sm font-semibold text-green-800 bg-green-50 border border-green-100 rounded-full px-4 py-1.5">
             אבחון מקצועי לקשב וריכוז
           </span>
 
-          <h1 className="font-serif text-4xl md:text-6xl font-bold text-gray-900 leading-[1.15] mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-[1.15] mb-4">
             האבחון הנכון
             <br />
             <span className="text-forest">לא צריך לחכות</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-600 mb-6 max-w-xl md:mr-0 mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 mb-4 max-w-xl md:mr-0 mx-auto">
             בקשב פלוס מקבלים מענה מהיר, אבחון מדויק ותוכנית טיפול אישית - לילדים, לבני נוער
             ולמבוגרים.
           </p>
 
-          <p className="text-sm text-gray-500 mb-8">
+          <p className="text-sm text-gray-500 mb-5">
             בהובלת ד"ר איירין כוכב רייפמן, מומחית לאבחון וטיפול בהפרעות קשב וריכוז
           </p>
 
-          <div className="flex flex-wrap justify-center md:justify-end gap-3 mb-6">
+          <div className="flex flex-wrap justify-center md:justify-end gap-3 mb-4">
             <a
               href="#contact"
               className="inline-flex items-center gap-2 bg-orange-400 text-forest px-7 py-3.5 rounded-xl font-bold transition-colors duration-200 hover:bg-orange-300"
@@ -53,7 +53,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-wrap justify-center md:justify-end gap-2 pb-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-wrap justify-center md:justify-end gap-2 pb-6">
         {['בילדים', 'בנוער', 'במבוגרים'].map((item) => (
           <span
             key={item}

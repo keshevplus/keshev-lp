@@ -50,15 +50,16 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-white py-20 md:py-28">
+    <section id="contact" className="relative overflow-hidden bg-white py-12 md:py-16">
       <div className="relative max-w-2xl mx-auto px-4 sm:px-6 text-center">
-        <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-3">קבעו פגישת ייעוץ</h2>
-        <p className="text-lg text-gray-600 mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">קבעו פגישת ייעוץ</h2>
+        <p className="text-base text-gray-600 mb-1">
           השאירו פרטים ונחזור אליכם בהקדם, או התקשרו ישירות ל-{' '}
           <a href={`tel:${PHONE_TEL}`} className="text-forest font-semibold underline underline-offset-2">
             {PHONE_DISPLAY}
           </a>
         </p>
+        <p className="text-sm text-gray-500 mb-6">מילוי הטופס לוקח פחות מדקה</p>
 
         <div className="relative">
           <div
@@ -66,17 +67,16 @@ export default function ContactSection() {
             className="absolute -inset-3 sm:-inset-4 bg-gradient-to-br from-green-700/10 to-orange-300/25 rounded-2xl rotate-1"
           />
           <form
-            className="relative bg-cream rounded-2xl p-6 sm:p-8 text-right"
+            className="relative bg-cream rounded-2xl p-5 sm:p-7 text-right"
             onSubmit={(e) => {
               e.preventDefault();
               handleSubmit(onSubmit)(e);
             }}
             noValidate
           >
-            <div className="grid grid-cols-1 gap-5 mb-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               {[
                 { name: 'name' as const, label: 'שם' },
-                { name: 'email' as const, label: 'אימייל', type: 'email' },
                 { name: 'phone' as const, label: 'טלפון', type: 'tel' },
               ].map(({ name, label, type = 'text' }) => (
                 <div key={name}>
@@ -100,14 +100,31 @@ export default function ContactSection() {
               ))}
             </div>
 
-            <div className="mb-6">
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
+                אימייל
+              </label>
+              <input
+                id="email"
+                {...register('email')}
+                type="email"
+                className={`w-full px-4 py-3 rounded-xl border bg-white text-right transition-colors ${
+                  errors.email ? 'border-red-400 focus:border-red-500' : 'border-gray-200 focus:border-orange-400'
+                } outline-none`}
+              />
+              {errors.email && (
+                <span className="block text-red-600 text-sm mt-1.5">{errors.email.message}</span>
+              )}
+            </div>
+
+            <div className="mb-5">
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
                 הודעה
               </label>
               <textarea
                 id="message"
                 {...register('message')}
-                rows={4}
+                rows={3}
                 className={`w-full px-4 py-3 rounded-xl border bg-white text-right transition-colors ${
                   errors.message ? 'border-red-400 focus:border-red-500' : 'border-gray-200 focus:border-orange-400'
                 } outline-none`}
@@ -120,9 +137,9 @@ export default function ContactSection() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-orange-400 text-forest px-6 py-3.5 rounded-xl font-bold transition-colors duration-200 hover:bg-orange-300 disabled:bg-gray-300 disabled:text-gray-500"
+              className="w-full bg-orange-400 text-forest px-6 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:bg-orange-300 hover:shadow-md disabled:bg-gray-300 disabled:text-gray-500 disabled:shadow-none"
             >
-              {isSubmitting ? 'שולח...' : 'שלח הודעה'}
+              {isSubmitting ? 'שולח...' : 'קבעו פגישת ייעוץ עכשיו'}
             </button>
           </form>
         </div>
