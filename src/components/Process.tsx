@@ -18,7 +18,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-cream py-20 md:py-28">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 text-center mb-14 md:mb-16">
           איך זה עובד
