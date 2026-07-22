@@ -13,7 +13,7 @@ export default function About() {
               className="absolute -inset-3 sm:-inset-4 bg-gradient-to-br from-green-700/15 to-orange-300/30 rounded-2xl -rotate-2"
             />
             <img
-              src="/assets/images/doctor-hero.png"
+              src="/assets/images/hero-about.jpg"
               alt="ד&quot;ר איירין כוכב רייפמן"
               className="relative rounded-xl w-full h-auto object-cover"
             />
