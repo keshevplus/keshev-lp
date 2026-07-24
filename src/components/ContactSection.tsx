@@ -1,26 +1,42 @@
 import type { BaseSyntheticEvent } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { toast } from 'react-toastify';
 import { API_URL, PHONE_DISPLAY, PHONE_TEL } from '../config';
 
-const formSchema = z.object({
+const buildFormSchema = (requireMessage: boolean) => z.object({
   name: z.string().min(2, 'השם חייב להכיל לפחות 2 תווים'),
   email: z.string().email('אנא הכנס כתובת דוא"ל חוקית'),
   phone: z.string().regex(/^0(5[^7]|[2-4]|[8-9]|7[0-9])[0-9]{7}$/, 'מספר טלפון לא תקין'),
-  message: z.string().min(2, 'ההודעה חייבת להכיל לפחות 2 תווים'),
+  message: requireMessage
+    ? z.string().trim().min(1, 'נא למלא הודעה')
+    : z.string().optional().default(''),
 });
 
-type FormValues = z.infer<typeof formSchema>;
+type FormValues = z.infer<ReturnType<typeof buildFormSchema>>;
 
 export default function ContactSection() {
+  const [requireMessage, setRequireMessage] = useState(false);
+
+  useEffect(() => {
+    fetch(`${API_URL}/api/settings/contact-form`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data && typeof data.requireMessage === 'boolean') {
+          setRequireMessage(data.requireMessage);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<FormValues>({ resolver: zodResolver(formSchema) });
+  } = useForm<FormValues>({ resolver: zodResolver(buildFormSchema(requireMessage)) });
 
   const onSubmit = async (data: FormValues, event: BaseSyntheticEvent | undefined) => {
     event?.preventDefault?.();
@@ -119,7 +135,7 @@ export default function ContactSection() {
 
             <div className="mb-5">
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
-                הודעה
+                הודעה{requireMessage ? ' *' : ''}
               </label>
               <textarea
                 id="message"
