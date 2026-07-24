@@ -12,7 +12,7 @@ export default function Footer() {
           <a href={`tel:${PHONE_TEL}`} className="hover:text-forest transition-colors">
             טלפון: {PHONE_DISPLAY}
           </a>
-          <a href="mailto:dr@keshevplus.co.il" className="hover:text-forest transition-colors">
+          <a href="mailto:office@keshevplus.co.il" className="hover:text-forest transition-colors">
             dr@keshevplus.co.il
           </a>
           <a
